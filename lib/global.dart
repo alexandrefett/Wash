@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class AppKeyword {
   static String ITEM_USER_OPTION_MENU = 'user_option_menu',
+      ITEM_APP_OPTION_MENU = 'app_option_menu',
 
 
       KEY_MENU_TITLE = "menu_title",

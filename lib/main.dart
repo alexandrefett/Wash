@@ -23,33 +23,20 @@ class WelcomeWidget extends AnimatedWidget {
   final RemoteConfig remoteConfig;
   int selectedMenuId = -1;
 
-  _onSelectItem(int index) {
-    switch (index) {
-      case 0:
-      case 1:
-      case 2:
-      case 3:
-        break;
-
-      case 4:
-        break;
-    }
-  }
-
-
-
-
   @override
   Widget build(BuildContext context) {
     // list of Widgets
-    List<Widget> drawerOptions = new List();
+    List<Widget> drawerAppOptions = new List();
+
+    List<Widget> drawerUserOptions = new List();
+
     //Main Header
     Widget mainHeader = Container(
-      margin: EdgeInsets.only(top: 10.0, bottom: 18.0),
+      margin: EdgeInsets.only(top: 5.0, bottom: 18.0),
       child: Column(
         children: <Widget>[
           Container(
-            margin: EdgeInsets.only(bottom: 5.0),
+            margin: EdgeInsets.only(bottom: 15.0),
             decoration: new BoxDecoration(
               color: Colors.black12,
               borderRadius: new BorderRadius.all(new Radius.circular(11.0)),
@@ -95,11 +82,26 @@ class WelcomeWidget extends AnimatedWidget {
         ],
       ),
     );
-    drawerOptions.add(mainHeader);
+
+    drawerUserOptions.add(mainHeader);
+
+    drawerAppOptions.add(Container(
+      margin: EdgeInsets.only(top: 5.0, bottom: 15.0),
+      decoration: new BoxDecoration(
+        color: Colors.black12,
+        borderRadius: new BorderRadius.all(new Radius.circular(11.0)),
+        border: new Border.all(color: Colors.black12, width: 0.0),
+      ),
+      height: 6.0,
+      width: 30.0,
+    ));
 
     //Option Menu
     String strUserOptionMenu =
         remoteConfig.getString(AppKeyword.ITEM_USER_OPTION_MENU);
+
+    String strAppOptionMenu =
+        remoteConfig.getString(AppKeyword.ITEM_APP_OPTION_MENU);
 
     if (strUserOptionMenu != null && strUserOptionMenu.isNotEmpty) {
       var data = json.decode(strUserOptionMenu);
@@ -151,7 +153,62 @@ class WelcomeWidget extends AnimatedWidget {
             ));
 
         if (strMenuIsActive) {
-          drawerOptions.add(listItem);
+          drawerUserOptions.add(listItem);
+        }
+      }
+    }
+
+    if (strAppOptionMenu != null && strAppOptionMenu.isNotEmpty) {
+      var data = json.decode(strAppOptionMenu);
+
+      for (var userMenuData in data) {
+        String strMenuTitle =
+            userMenuData[AppKeyword.KEY_MENU_TITLE].toString();
+
+        String strMenuImage =
+            userMenuData[AppKeyword.KEY_MENU_IMAGE].toString();
+
+        bool strMenuIsActive = userMenuData[AppKeyword.KEY_IS_ACTIVE];
+
+        int strMenuId = userMenuData[AppKeyword.KEY_MENU_ID];
+
+        Widget listItem = InkResponse(
+//          onTap: () => _onSelectItem(i),
+            onTap: () {
+              Global.showCallDialogM(context, strMenuTitle.trim());
+            },
+            highlightShape: BoxShape.rectangle,
+            radius: 0.0,
+            child: Container(
+              height: 38.0,
+
+              padding: EdgeInsets.only(
+                left: 12.0,
+                top: 7.0,
+                bottom: 7.0,
+                right: 7.0,
+              ),
+//            color: i == _selectedDrawerIndex ? AppColors.colorSemiTrans : null,
+              child: Row(
+                children: <Widget>[
+                  Image.network(
+                    strMenuImage,
+                    color: Colors.black87,
+                    height: 20.0,
+                    width: 20.0,
+                  ),
+                  Container(
+                      padding: EdgeInsets.only(left: 15.0),
+                      child: new Text(
+                        strMenuTitle,
+                        style: TextStyle(color: Colors.black87, fontSize: 14.0),
+                      ))
+                ],
+              ),
+            ));
+
+        if (strMenuIsActive) {
+          drawerAppOptions.add(listItem);
         }
       }
     }
@@ -160,34 +217,16 @@ class WelcomeWidget extends AnimatedWidget {
       appBar: new AppBar(
         title: const Text('Wash X'),
       ),
-
-//      body: new Center(
-//          child: new Text('Welcome ${remoteConfig.getString('welcome')}')),
-//      floatingActionButton: new FloatingActionButton(
-//          child: const Icon(Icons.refresh),
-//          onPressed: () async {
-//            try {
-//              // Using default duration to force fetching from remote server.
-//              await remoteConfig.fetch(expiration: const Duration(seconds: 0));
-//              await remoteConfig.activateFetched();
-//            } on FetchThrottledException catch (exception) {
-//              // Fetch throttled.
-//              print(exception);
-//            } catch (exception) {
-//              print(
-//                  'Unable to fetch remote config. Cached or default values will be '
-//                      'used');
-//            }
-//          }),
-//      body: new Column(children: drawerOptions),
-      body: new Center(
-          child: new RaisedButton(
-              child: const Text('USER OPATIONS'),
-
+      body:  Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            new RaisedButton(
+              child: const Text('USER OPTIONS'),
               onPressed: () async {
                 try {
                   // Using default duration to force fetching from remote server.
-                  await remoteConfig.fetch(expiration: const Duration(seconds: 0));
+                  await remoteConfig.fetch(
+                      expiration: const Duration(seconds: 0));
                   await remoteConfig.activateFetched();
                 } on FetchThrottledException catch (exception) {
                   // Fetch throttled.
@@ -195,7 +234,7 @@ class WelcomeWidget extends AnimatedWidget {
                 } catch (exception) {
                   print(
                       'Unable to fetch remote config. Cached or default values will be '
-                          'used');
+                      'used');
                 }
 
                 showModalBottomSheet<void>(
@@ -204,8 +243,8 @@ class WelcomeWidget extends AnimatedWidget {
                       return new Container(
                           child: new Padding(
                             padding:
-                            const EdgeInsets.only(left: 32.0, right: 15.0),
-                            child: new Column(children: drawerOptions),
+                                const EdgeInsets.only(left: 32.0, right: 15.0),
+                            child: new Column(children: drawerUserOptions),
                           ),
                           decoration: new BoxDecoration(
                             borderRadius: new BorderRadius.only(
@@ -218,52 +257,64 @@ class WelcomeWidget extends AnimatedWidget {
                           ));
                     });
               },
+            ),
+           Container(height: 30.0,),
+            new RaisedButton(
+              child: const Text('APP OPTIONS'),
+              onPressed: () async {
+                try {
+                  // Using default duration to force fetching from remote server.
+                  await remoteConfig.fetch(
+                      expiration: const Duration(seconds: 0));
+                  await remoteConfig.activateFetched();
+                } on FetchThrottledException catch (exception) {
+                  // Fetch throttled.
+                  print(exception);
+                } catch (exception) {
+                  print(
+                      'Unable to fetch remote config. Cached or default values will be '
+                      'used');
+                }
 
-//              onPressed: () {
-////                refresh(remoteConfig);
-//
-//
-//                showModalBottomSheet<void>(
-//                    context: context,
-//                    builder: (BuildContext context) {
-//                      return new Container(
-//                          child: new Padding(
-//                            padding:
-//                                const EdgeInsets.only(left: 32.0, right: 15.0),
-//                            child: new Column(children: drawerOptions),
-//                          ),
-//                          decoration: new BoxDecoration(
-//                            borderRadius: new BorderRadius.only(
-//                                topRight: new Radius.circular(11.0),
-//                                topLeft: new Radius.circular(11.0)),
-//                            border: new Border.all(
-//                              color: Colors.black12,
-//                              width: 1.8,
-//                            ),
-//                          ));
-//                    });
-//              }
-
-              )),
+                showModalBottomSheet<void>(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return new Container(
+                          child: new Padding(
+                            padding:
+                                const EdgeInsets.only(left: 32.0, right: 15.0),
+                            child: new Column(children: drawerAppOptions),
+                          ),
+                          decoration: new BoxDecoration(
+                            borderRadius: new BorderRadius.only(
+                                topRight: new Radius.circular(11.0),
+                                topLeft: new Radius.circular(11.0)),
+                            border: new Border.all(
+                              color: Colors.black12,
+                              width: 1.8,
+                            ),
+                          ));
+                    });
+              },
+            ),
+          ],
+        ),
     );
   }
 }
 
 refresh(remoteConfig) async {
-
-    try {
-      // Using default duration to force fetching from remote server.
-      await remoteConfig.fetch(expiration: const Duration(seconds: 0));
-      await remoteConfig.activateFetched();
-    } on FetchThrottledException catch (exception) {
-      // Fetch throttled.
-      print(exception);
-    } catch (exception) {
-      print(
-          'Unable to fetch remote config. Cached or default values will be '
-              'used');
-    }
-
+  try {
+    // Using default duration to force fetching from remote server.
+    await remoteConfig.fetch(expiration: const Duration(seconds: 0));
+    await remoteConfig.activateFetched();
+  } on FetchThrottledException catch (exception) {
+    // Fetch throttled.
+    print(exception);
+  } catch (exception) {
+    print('Unable to fetch remote config. Cached or default values will be '
+        'used');
+  }
 }
 
 Future<RemoteConfig> setupRemoteConfig() async {
