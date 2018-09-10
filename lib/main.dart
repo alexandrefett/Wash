@@ -45,40 +45,46 @@ class WelcomeWidget extends AnimatedWidget {
             height: 6.0,
             width: 30.0,
           ),
-          Row(
-            children: <Widget>[
-              Image.asset(
-                AppKeyword.ic_user,
-                height: 36.0,
-                width: 36.0,
-              ),
-              Container(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      new Text(
-                        'Mendy Marcus',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w400),
-                      ),
-                      new Text(
-                        'mendymarcus@gmail.com',
-                        style: TextStyle(color: Colors.black87, fontSize: 12.0),
-                      ),
-                    ],
-                  )),
-              Container(
-                margin: EdgeInsets.only(left: 36.0),
-                child: new Text(
-                  'Sign Out',
-                  style: TextStyle(color: Colors.black87, fontSize: 14.0),
+          Stack(
+              children: <Widget>[
+                Image.asset(
+                  AppKeyword.ic_user,
+                  height: 36.0,
+                  alignment: Alignment.centerLeft,
+                  width: 36.0,
                 ),
-              )
-            ],
-          )
+                Container(
+                    alignment: Alignment.centerLeft,
+                    margin: EdgeInsets.only(left: 38.0),
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        new Text(
+                          'Mendy Marcus',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400),
+                        ),
+                        new Text(
+                          'mendymarcus@gmail.com',
+                          style: TextStyle(color: Colors.black87, fontSize: 12.0),
+                        ),
+                      ],
+                    )),
+                Container(
+                  alignment: Alignment.centerRight,
+                  margin: EdgeInsets.only(left: 36.0),
+                  height: 36.0,
+                  child: new Text(
+                    'LOGOUT',
+                    style: TextStyle(color: Colors.black87, fontSize: 14.0),
+                  ),
+                )
+              ]
+
+          ),
         ],
       ),
     );
@@ -180,7 +186,7 @@ class WelcomeWidget extends AnimatedWidget {
             highlightShape: BoxShape.rectangle,
             radius: 0.0,
             child: Container(
-              height: 38.0,
+              height: 45.0,
 
               padding: EdgeInsets.only(
                 left: 12.0,
@@ -218,8 +224,21 @@ class WelcomeWidget extends AnimatedWidget {
         title: const Text('Wash X'),
       ),
       body:  Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Container(
+              margin: const EdgeInsets.fromLTRB(0.0, 25.0, 0.0 , 100.0),
+            child: new Text('Wash X',
+              textAlign: TextAlign.center,
+              textScaleFactor: 5.0,
+              style: TextStyle(color: Colors.black87, fontSize: 14.0),
+              ),
+            ),
+//            new Text('Wash X',
+//              textAlign: TextAlign.center,
+//              textScaleFactor: 5.0,
+//              style: TextStyle(color: Colors.black87, fontSize: 14.0),),
+//            Container(height: 120.0,),
             new RaisedButton(
               child: const Text('USER OPTIONS'),
               onPressed: () async {
@@ -246,15 +265,16 @@ class WelcomeWidget extends AnimatedWidget {
                                 const EdgeInsets.only(left: 32.0, right: 15.0),
                             child: new Column(children: drawerUserOptions),
                           ),
-                          decoration: new BoxDecoration(
-                            borderRadius: new BorderRadius.only(
-                                topRight: new Radius.circular(11.0),
-                                topLeft: new Radius.circular(11.0)),
-                            border: new Border.all(
-                              color: Colors.black12,
-                              width: 1.8,
-                            ),
-                          ));
+//                          decoration: new BoxDecoration(
+//                            borderRadius: new BorderRadius.only(
+//                                topRight: new Radius.circular(11.0),
+//                                topLeft: new Radius.circular(11.0)),
+//                            border: new Border.all(
+//                              color: Colors.black12,
+//                              width: 1.8,
+//                            ),
+//                          ),
+                      );
                     });
               },
             ),
@@ -282,18 +302,19 @@ class WelcomeWidget extends AnimatedWidget {
                       return new Container(
                           child: new Padding(
                             padding:
-                                const EdgeInsets.only(left: 32.0, right: 15.0),
+                                const EdgeInsets.only(left: 15.0, right: 15.0),
                             child: new Column(children: drawerAppOptions),
                           ),
-                          decoration: new BoxDecoration(
-                            borderRadius: new BorderRadius.only(
-                                topRight: new Radius.circular(11.0),
-                                topLeft: new Radius.circular(11.0)),
-                            border: new Border.all(
-                              color: Colors.black12,
-                              width: 1.8,
-                            ),
-                          ));
+//                          decoration: new BoxDecoration(
+//                            borderRadius: new BorderRadius.only(
+//                                topRight: new Radius.circular(11.0),
+//                                topLeft: new Radius.circular(11.0)),
+//                            border: new Border.all(
+//                              color: Colors.black12,
+//                              width: 1.8,
+//                            ),
+//                          ),
+                      );
                     });
               },
             ),
