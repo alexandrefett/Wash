@@ -1,7 +1,15 @@
 <component name="libraryTable">
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../../../Development/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_remote_config-0.0.5" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/google_sign_in-3.0.4" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_login-1.1.1" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/local_auth-0.2.1" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.4.10" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core-0.2.5" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-0.5.19" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_twitter_login-1.1.0" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/cloud_firestore-0.7.4" />
+      <root url="file://E:/flutter_windows_v0.5.1-beta/flutter/.pub-cache/hosted/pub.dartlang.org/speech_recognition-0.2.0+1" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,5 +1,5 @@
-name: washx
-description: A new Flutter application.
+name: wash_x
+description: A new Flutter project.
 
 dependencies:
   flutter:
@@ -8,7 +8,16 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
-  firebase_remote_config: ^0.0.5
+  firebase_auth: ^0.5.19
+  flutter_facebook_login: ^1.1.1
+  google_sign_in: ^3.0.4
+  local_auth: ^0.2.1
+  cloud_firestore: ^0.7.4
+  flutter_twitter_login: ^1.1.0
+  image_picker: ^0.4.6
+  speech_recognition: ^0.2.0+1
+
+
 
 dev_dependencies:
   flutter_test:
@@ -25,12 +34,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  assets:
-      - images/ic_user.png
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #  - images/a_dot_burr.jpeg
+  assets:
+    - assets/
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

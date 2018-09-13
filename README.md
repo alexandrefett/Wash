@@ -1,6 +1,6 @@
-# washx
+# wash_x
 
-Wash X Flutter App
+A new Flutter project.
 
 ## Getting Started
 
