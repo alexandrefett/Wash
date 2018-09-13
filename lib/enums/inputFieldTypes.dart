@@ -1,0 +1,10 @@
+enum InputFieldTypes {
+  DEFAULT,
+  USERNAME_EMAIL_PHONE,
+  PASSWORD,
+  FIRST_NAME,
+  LAST_NAME,
+  EMAIL,
+  PHONE,
+  USERNAME
+}
