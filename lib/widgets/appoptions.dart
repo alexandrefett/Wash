@@ -12,10 +12,10 @@ class AppOptions extends StatelessWidget {
 
   void _fetch() async {
     try{
-      await remoteConfig.fetch(expiration: const Duration(seconds: 0));
+      await remoteConfig.fetch(expiration: const Duration(seconds: 5));
       await remoteConfig.activateFetched();
     } on FetchThrottledException catch (exception) {
-      print(exception);
+      print('Exception:$exception');
     } catch (exception) {
       print(
         'Unable to fetch remote config. Cached or default values will be used');
@@ -24,7 +24,8 @@ class AppOptions extends StatelessWidget {
 
   void _remote(WashModel model) async{
     remoteConfig = await setupRemoteConfig();
-    String app_options =  remoteConfig.getString('app_option_menu');
+    String app_options = remoteConfig.getString('app_option_menu');
+    print('---------$app_options');
     (json.decode(app_options) as List).forEach((f){
       model.addItem(WashRemoteItem.fromMap(f));
     });
@@ -65,7 +66,8 @@ class AppOptions extends StatelessWidget {
                         title: new Text(list[index].menu_title)
                       );
                   }
-                ))
+                )
+              )
             ]
         )
       );

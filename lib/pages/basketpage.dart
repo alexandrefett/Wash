@@ -13,10 +13,15 @@ class _BasketPage extends State<BasketPage>
   Widget build(BuildContext context) {
     return new Center(
         child: new Container(
-            child: new Icon(MyFlutterApp.trash,size: 200.0,)));
+            child: new IconButton(
+              icon: Icon(MyFlutterApp.trash),
+              iconSize: 200.0,
+            onPressed: _showBottomSheet)
+        )
+    );
   }
 
-  void _showBottomSheet() {
+  _showBottomSheet() {
     showModalBottomSheet<void>(
         context: context,
         builder: (BuildContext context) {
