@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:washx/model/slider-model.dart';
-import 'package:washx/ui/box-decoration-param.dart';
-import 'package:washx/ui/slider_list.dart';
+import 'package:wash_x/freewash/model/slider-model.dart';
+import 'package:wash_x/freewash/ui/slider_list.dart';
+import 'package:wash_x/freewash/ui/box-decoration-param.dart';
+//import 'package:washx/model/slider-model.dart';
+//import 'package:washx/ui/box-decoration-param.dart';
+//import 'package:washx/ui/slider_list.dart';
 
 class FreeWash extends StatefulWidget {
   @override

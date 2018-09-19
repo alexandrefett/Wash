@@ -27,7 +27,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId "com.example.demoproject"
+        applicationId "com.washx.demo"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
@@ -63,3 +63,4 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true

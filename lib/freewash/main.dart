@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:washx/ui/free-wash.dart';
+import 'package:wash_x/freewash/ui/free-wash.dart';
+//import 'package:washx/ui/free-wash.dart';
 
 void main() => runApp(new MaterialApp(
       title: 'Wash X',

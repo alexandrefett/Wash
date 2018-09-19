@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:washx/model/slider-model.dart';
+import 'package:wash_x/freewash/model/slider-model.dart';
+//import 'package:washx/model/slider-model.dart';
 import 'dart:async';
 
 class SliderList extends StatelessWidget {
