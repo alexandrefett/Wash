@@ -113,28 +113,26 @@ class _MyHomePageState extends State<MyHomePage>{
                   ]
                 )
               )),
-              new SingleChildScrollView(padding: new EdgeInsets.all(8.0),
+            ScopedModelDescendant<WashModel>(
+                builder: (context, child, model) {
+                  return new SingleChildScrollView(padding: new EdgeInsets.all(8.0),
                 scrollDirection: Axis.horizontal,
                 child: new Row(children:[
-                  ScopedModelDescendant<WashModel>(
-                    builder: (context, child, model) {
-                      return new WashChip(
+                  new WashChip(
                         bottonSheet: new AddressChange(),
                         label: new Text(model.address.line1),
-                        avatar: new Icon(MyFlutterApp.place,size: 18.0,));}),
+                        avatar: new Icon(MyFlutterApp.place,size: 18.0,)),
                   new WashChip(
                     bottonSheet: new CustomTimeChange(),
-                    label: new Text('time change'),
+                    label: new Text('${model.delivery.weekday}/${model.delivery.time}'),
                     avatar: new Icon(MyFlutterApp.clock,size: 18.0,)),
                   new WashChip(
                       bottonSheet: new AppOptions(),
                       label: new Text('APP OPTIONS'),
                       avatar: new Icon(MyFlutterApp.info,size: 18.0,))
+                ]));})
 
-                ]
-                ))
-                ]
-        )))));
+      ])))));
   }
 }
 
