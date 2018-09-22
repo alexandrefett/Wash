@@ -17,14 +17,13 @@ class _CustomTimeChange extends State<CustomTimeChange> {
   List<String> _time = ['MORNING', 'NOON', 'EVENING'];
   List<String> _dayweek = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
 
-  static const text = 'Description time change, Description time change, '
-      'Description time change, Description time change, Description time ';
+  static const text = 'Description time change';
 
   @override
   void initState() {
+    super.initState();
     _timeController = new ChoiceController(list: _time,);
     _dayController = new ChoiceController(list: _dayweek,);
-    super.initState();
   }
 
   void update(){
@@ -33,7 +32,6 @@ class _CustomTimeChange extends State<CustomTimeChange> {
       time: _timeController.item
     );
     WashDatabase.updateDeliveryTime(a);
-    Navigator.pop(context);
   }
 
   @override
@@ -55,17 +53,13 @@ class _CustomTimeChange extends State<CustomTimeChange> {
         new Text(text,style: new TextStyle(fontSize: 18.0)),
         new WashBar(controller: _timeController, list: _time,),
         new WashBar(controller: _dayController, list: _dayweek,),
-        new Expanded(
-          child: new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              new FlatButton(onPressed: (){}, child: new Text('CANCEL')),
-              new FlatButton(onPressed: (){
-                update();
-              }, child: new Text('CONFIRM'))
-            ]
-          )
-        )]
+      ]
     ));});
+  }
+
+  @override
+  void dispose() {
+    update();
+    super.dispose();
   }
 }

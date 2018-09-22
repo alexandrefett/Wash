@@ -11,14 +11,18 @@ class _BasketPage extends State<BasketPage>
     with AutomaticKeepAliveClientMixin<BasketPage> {
   @override
   Widget build(BuildContext context) {
-    return new Center(
-        child: new Container(
-            child: new IconButton(
-              icon: Icon(MyFlutterApp.trash),
-              iconSize: 200.0,
-            onPressed: _showBottomSheet)
-        )
-    );
+    return new Column(children: <Widget>[
+      Container(
+          child: Icon(MyFlutterApp.trash,size: 275.0),
+        padding: new EdgeInsets.only(top:100.0),
+      ),
+      FlatButton(child: new Text('START WASH',
+          style: TextStyle(color: Colors.blueAccent)),
+          shape: new StadiumBorder(
+              side: new BorderSide(
+                  color: Colors.black26)),
+          onPressed: _showBottomSheet),
+    ]);
   }
 
   _showBottomSheet() {

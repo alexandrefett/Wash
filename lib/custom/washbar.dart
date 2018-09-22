@@ -51,9 +51,6 @@ class _WashBar extends State<WashBar> {
     _avatar = widget.avatar;
 
     return new Container(
-      decoration: new BoxDecoration(
-        border: new Border.all(color: Colors.black12),
-        borderRadius: new BorderRadius.all(const Radius.circular(16.0))),
       margin: new EdgeInsets.only(top: 16.0, bottom: 16.0),
       alignment: Alignment.center,
       child:new Row(

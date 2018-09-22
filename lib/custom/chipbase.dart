@@ -16,7 +16,7 @@ class WashChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-      margin: new EdgeInsets.only(right: 5.0),
+      margin: new EdgeInsets.only(right: 3.0),
       child: new Card(elevation: 5.0,
         shape: RoundedRectangleBorder(
           borderRadius: new BorderRadius.all(const Radius.circular(16.0))),
@@ -35,6 +35,7 @@ class WashChip extends StatelessWidget {
       )
     );
   }
+
 
   _showBottomSheet(Widget content, BuildContext context) {
     showModalBottomSheet<void>(

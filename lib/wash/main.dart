@@ -37,9 +37,12 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => new _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage>{
+class _MyHomePageState extends State<MyHomePage>
+    with SingleTickerProviderStateMixin{
   WashModel washModel;
   StreamSubscription _subsWash;
+  TabController _tabcontroller;
+  String _currentTab;
 
   void _login() async{
     FirebaseUser user = await FirebaseAuth.instance
@@ -63,10 +66,17 @@ class _MyHomePageState extends State<MyHomePage>{
 
   @override
   void initState() {
+    super.initState();
+    _tabcontroller = new TabController(vsync: this, length: pages.length);
+    _tabcontroller.addListener((){
+      setState(() {
+        _currentTab = pages[_tabcontroller.index];
+      });
+    });
+    _currentTab = pages[_tabcontroller.index];
     _login();
     WashDatabase.getWashModel('', _updateWash)
         .then((StreamSubscription s) => _subsWash = s);
-    super.initState();
   }
 
   @override
@@ -74,18 +84,15 @@ class _MyHomePageState extends State<MyHomePage>{
     return washModel==null? new Container() : ScopedModel<WashModel>(
       model: washModel,
       child: MaterialApp(
-      home: DefaultTabController(
-        length: 5,
-        initialIndex: 0,
-        child: new Scaffold(
+      home: new Scaffold(
           resizeToAvoidBottomPadding: false,
-          body:  TabBarView(
+          body:  TabBarView(controller: _tabcontroller,
             children: <Widget>[
-              new Container(child: new Container(child: new Text('ProfilePage'))),
               new Container(child: new BasketPage()),
               new Container(child: new LaundryPage()),
               new Container(child: new DryCleanPage()),
-              new Container(child: new Container(child: new Text('ProfilePage')))
+              new Container(child: new Center(child: new Text('Car Wash'))),
+              new Container(child: new Center(child: new Text('Couch Wash'))),
         ]),
         bottomNavigationBar: new Column(
           mainAxisSize: MainAxisSize.min,
@@ -96,65 +103,62 @@ class _MyHomePageState extends State<MyHomePage>{
               child: new Container(
                 margin: new EdgeInsets.all(5.0),
                 decoration: new CustomTabInactive(
-                  tabCount: 5,
+                  tabCount: pages.length,
                   width: 250.0),
                 width: 250.0,
                 height: 48.0,
-                child: TabBar(
+                child: TabBar(controller: _tabcontroller,
                   labelColor: Colors.black,
                   unselectedLabelColor: Colors.grey,
                   indicator: new CustomTabIndicator(),
                   tabs: [
-                    Tab(icon: Icon(MyFlutterApp.user )),
                     Tab(icon: Icon(MyFlutterApp.trash )),
                     Tab(icon: Icon(MyFlutterApp.local_laundry_service)),
                     Tab(icon: Icon(MyFlutterApp.coatrack)),
-                    Tab(icon: Icon(MyFlutterApp.help))
-                  ]
-                )
-              )),
+                    Tab(icon: Icon(Icons.local_car_wash)),
+                    Tab(icon: Icon(Icons.local_car_wash)),
+                  ]))),
+            Column(children: <Widget>[
             ScopedModelDescendant<WashModel>(
-                builder: (context, child, model) {
-                  return new SingleChildScrollView(padding: new EdgeInsets.all(8.0),
-                scrollDirection: Axis.horizontal,
-                child: new Row(children:[
-                  new WashChip(
-                        bottonSheet: new AddressChange(),
-                        label: new Text(model.address.line1),
-                        avatar: new Icon(MyFlutterApp.place,size: 18.0,)),
-                  new WashChip(
-                    bottonSheet: new CustomTimeChange(),
-                    label: new Text('${model.delivery.weekday}/${model.delivery.time}'),
-                    avatar: new Icon(MyFlutterApp.clock,size: 18.0,)),
-                  new WashChip(
+              builder: (context, child, model) {
+                return new SingleChildScrollView(
+                  padding: new EdgeInsets.all(8.0),
+                  scrollDirection: Axis.horizontal,
+                  child: new Row(children:[
+                    new WashChip(
+                      bottonSheet: new AddressChange(),
+                      label: new Text(model.address.line1),
+                      avatar: new Icon(MyFlutterApp.place,size: 18.0,)),
+                    new WashChip(
+                      bottonSheet: new CustomTimeChange(),
+                      label: new Text('${model.delivery.weekday}/${model.delivery.time}'),
+                      avatar: new Icon(MyFlutterApp.clock,size: 18.0,)),
+                    new WashChip(
                       bottonSheet: new AppOptions(),
                       label: new Text('APP OPTIONS'),
                       avatar: new Icon(MyFlutterApp.info,size: 18.0,))
-                ]));})
-
-      ])))));
+              ]));}),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisSize: MainAxisSize.max ,
+                children: <Widget>[
+                  new Container(
+                      padding: new EdgeInsets.all(5.0),
+                      child: FloatingActionButton(
+                        child: new Image.asset('assets/assistant.png',width: 25.0,height: 25.0,),
+                        backgroundColor: Colors.white,onPressed: (){})),
+                  new Text(_currentTab,
+                    style: TextStyle(
+                      color: Colors.blueAccent,
+                      fontWeight: FontWeight.bold)),
+                  new IconButton(icon: new Icon(Icons.tune,size: 30.0,))
+                ])
+              ])
+            ]))));
   }
 }
 
-class ProfilePage {
-}
-
-class ChipContent {
-  ChipContent({ this.title, this.icon, this.content});
-  String title;
-  IconData icon;
-  Widget content;
-}
-
-List<ChipContent> choices = <ChipContent>[
-  new ChipContent(
-      content: new AddressChange(),
-      icon: MyFlutterApp.place),
-  new ChipContent(title: 'Tueday/Afternoon', icon: MyFlutterApp.clock,
-      content: new CustomTimeChange(), ),
-  new ChipContent(title: 'APP OPTIONS',icon: MyFlutterApp.user,
-      content: new Text('User\'s options')),
-];
+List<String> pages = ['BASKET','WASH', 'WARDROBE','CAR WASH', 'COUCH WASH'];
 
 final ThemeData _washTheme = _buildWashTheme();
 

@@ -10,8 +10,8 @@ class ChoiceController extends ChangeNotifier{
     if (value == _index || list.length < 2)
       return;
     _index = value;
-    notifyListeners(); // Because the value of indexIsChanging may have changed.
-    }
+    notifyListeners();
+  }
 
   int get index => _index;
 
@@ -21,7 +21,12 @@ class ChoiceController extends ChangeNotifier{
     _changeIndex(value);
   }
 
-  String get item => list[_index];
+  String get item {
+    print('get index:$_index');
+    print('get index:${list[_index]}');
+    return list[_index];
+  }
+
   set item(String value){
     _changeIndex(list.indexOf(value));
   }
