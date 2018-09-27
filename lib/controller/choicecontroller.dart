@@ -22,8 +22,6 @@ class ChoiceController extends ChangeNotifier{
   }
 
   String get item {
-    print('get index:$_index');
-    print('get index:${list[_index]}');
     return list[_index];
   }
 

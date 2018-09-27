@@ -7,6 +7,7 @@ import 'package:wash_x/custom/custom_tab_bar_incative.dart';
 import 'package:wash_x/helpers/my_flutter_app_icons.dart';
 import 'package:wash_x/helpers/washfirebase.dart';
 import 'package:wash_x/models/model.dart';
+import 'package:wash_x/pages/carpage.dart';
 import 'package:wash_x/pages/drycleanpage.dart';
 import 'package:wash_x/pages/laundrypage.dart';
 import 'package:wash_x/pages/basketpage.dart';
@@ -45,8 +46,8 @@ class _MyHomePageState extends State<MyHomePage>
   String _currentTab;
 
   void _login() async{
-    FirebaseUser user = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(
+    await FirebaseAuth.instance
+      .signInWithEmailAndPassword(
         email: 'alexandrefett@gmail.com',
         password: 'tuneca2011');
   }
@@ -84,15 +85,18 @@ class _MyHomePageState extends State<MyHomePage>
     return washModel==null? new Container() : ScopedModel<WashModel>(
       model: washModel,
       child: MaterialApp(
-      home: new Scaffold(
+      home: DefaultTabController(
+        length: pages.length,
+        initialIndex: 0,
+        child: new Scaffold(
           resizeToAvoidBottomPadding: false,
           body:  TabBarView(controller: _tabcontroller,
             children: <Widget>[
               new Container(child: new BasketPage()),
               new Container(child: new LaundryPage()),
               new Container(child: new DryCleanPage()),
-              new Container(child: new Center(child: new Text('Car Wash'))),
-              new Container(child: new Center(child: new Text('Couch Wash'))),
+              new Container(child: new CarPage()),
+              new Container(child: new CarPage()),
         ]),
         bottomNavigationBar: new Column(
           mainAxisSize: MainAxisSize.min,
@@ -115,12 +119,13 @@ class _MyHomePageState extends State<MyHomePage>
                     Tab(icon: Icon(MyFlutterApp.trash )),
                     Tab(icon: Icon(MyFlutterApp.local_laundry_service)),
                     Tab(icon: Icon(MyFlutterApp.coatrack)),
-                    Tab(icon: Icon(Icons.local_car_wash)),
+                    Tab(icon: Icon(Icons.directions_car)),
                     Tab(icon: Icon(Icons.local_car_wash)),
                   ]))),
             Column(children: <Widget>[
             ScopedModelDescendant<WashModel>(
               builder: (context, child, model) {
+                print('ScopedModelDescendant:${model.delivery.time}');
                 return new SingleChildScrollView(
                   padding: new EdgeInsets.all(8.0),
                   scrollDirection: Axis.horizontal,
@@ -151,10 +156,10 @@ class _MyHomePageState extends State<MyHomePage>
                     style: TextStyle(
                       color: Colors.blueAccent,
                       fontWeight: FontWeight.bold)),
-                  new IconButton(icon: new Icon(Icons.tune,size: 30.0,))
+                  new IconButton(icon: new Icon(Icons.tune,size: 30.0,),onPressed: (){},)
                 ])
               ])
-            ]))));
+            ])))));
   }
 }
 

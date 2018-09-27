@@ -21,23 +21,23 @@ class _AddressChange extends State<AddressChange>{
   @override
   void initState() {
     super.initState();
+    address = new AddressModel();
     _line1 = new TextEditingController();
     _line2 = new TextEditingController();
     _addressController = new ChoiceController(list: _place);
   }
 
   void update(){
-    AddressModel a = new AddressModel(
-      addresstype: _addressController.item,
-      first: _line1.text,
-      second: _line2.text);
-    print('a:$a');
-    WashDatabase.updateAddress(a);
+    address.addressType = _addressController.item;
+    address.first = _line1.text;
+    address.second = _line2.text;
+    WashDatabase.updateAddress(address);
     Navigator.pop(context);
   }
 
   @override
   void dispose(){
+    _addressController.dispose();
     _line1.dispose();
     _line2.dispose();
     super.dispose();
@@ -47,9 +47,13 @@ class _AddressChange extends State<AddressChange>{
   Widget build(BuildContext context) {
     return ScopedModelDescendant<WashModel>(
       builder: (context, child, model) {
+        print(model.address.line1);
+        print(model.address.line2);
+        print(model.address.addresstype);
         _line1.text = model.address.line1;
         _line2.text = model.address.line2;
         _addressController.item = model.address.addressType;
+
         return Container(
         margin: new EdgeInsets.all(16.0),
         child: new Column(
@@ -66,16 +70,9 @@ class _AddressChange extends State<AddressChange>{
                     color: Colors.blueAccent
                 )
             ),
-            new WashBar(
-              controller: _addressController,
-              list: _place
-            ),
+            new WashBar(controller: _addressController, list: _place),
             new Text('ADDRESS',
-              style: new TextStyle(
-                  fontSize: 18.0,
-                  color: Colors.blueAccent
-              )
-            ),
+              style: new TextStyle(fontSize: 18.0, color: Colors.blueAccent)),
             new Container(
               margin: new EdgeInsets.only(top: 16.0, bottom: 16.0),
               padding: new EdgeInsets.all(6.0),
@@ -86,8 +83,7 @@ class _AddressChange extends State<AddressChange>{
               child: new TextField(
                 controller: _line1,
                 onChanged: (value) {
-                  _line1.text = value;
-                  print('value: $value');
+                  address.line1 = value;
                 },
                 decoration: null)
             ),
@@ -100,7 +96,7 @@ class _AddressChange extends State<AddressChange>{
                 child: new TextField(
                   controller: _line2,
                   onChanged: (value) {
-                    _line2.text = value;
+                    address.line2 = value;
                   },
                   decoration: null,
                 )
@@ -109,17 +105,19 @@ class _AddressChange extends State<AddressChange>{
                 child: new Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      new FlatButton(
-                        onPressed: () {
+                      IconButton(onPressed: (){
                           Navigator.pop(context);
                         },
-                        child: new Text('CANCEL')),
-                      new FlatButton(
-                        onPressed: () {
-                          update();
-                          //Navigator.pop(context);
-                        },
-                        child: new Text('CONFIRM'))
+                        icon: Icon(Icons.arrow_back),
+                        iconSize: 22.0, color: Colors.black
+                      ),
+                      ActionChip(
+//                          backgroundColor: Colors.blueAccent,
+                          label: new Text('CONFIRM',
+                              style: new TextStyle(color: Colors.black)),
+                          onPressed: (){
+                            update();
+                          })
                     ]
                 )
             )

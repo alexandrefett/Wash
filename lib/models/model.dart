@@ -7,10 +7,6 @@ class WashModel extends Model{
   AddressModel address;
   DeliveryTimeModel delivery;
 
-  AddressModel get deliveryAddress => address;
-  DeliveryTimeModel get deliveryTime => delivery;
-
-
   List<BasketItem> _items = [];
   List<BasketItem> get items => _items;
 
@@ -48,6 +44,21 @@ class WashModel extends Model{
   }
 }
 
+class PaymentIssue extends Model{
+  DateTime date;
+  double ammount;
+  String id;
+
+  PaymentIssue({this.ammount, this.date, this.id});
+  factory PaymentIssue.fromMap(Map<String, dynamic> map){
+    return new PaymentIssue(
+      ammount: map['ammount'],
+      date: map['date'],
+      id: map['id']
+    );
+  }
+}
+
 class WashRemoteItem extends Model{
   String menu_title;
   String menu_image;
@@ -71,21 +82,39 @@ class WashRemoteItem extends Model{
 }
 
 class DeliveryTimeModel extends Model {
-  DeliveryTimeModel({this.time, this.weekday});
+  DeliveryTimeModel({this.time, this.weekday,this.ondemand});
 
   String time;
   String weekday;
+  bool ondemand;
+
+  void set setTime(String value){
+    time = value;
+    notifyListeners();
+  }
+
+  void set setWeekday(String value){
+    weekday = value;
+    notifyListeners();
+  }
+
+  void set setOndemand(bool value){
+    ondemand = value;
+    notifyListeners();
+  }
 
   factory DeliveryTimeModel.fromMap(Map<dynamic, dynamic> map){
     return new DeliveryTimeModel(
         time: map['time'],
-        weekday: map['weekday']
+        weekday: map['weekday'],
+        ondemand:map['ondemand']
     );
   }
 
   Map<String, dynamic> toJson() => {
     'time':time,
-    'weekday':weekday
+    'weekday':weekday,
+    'ondemand':ondemand
   };
 }
 
@@ -124,6 +153,7 @@ class AddressModel extends Model{
   String get addressType => addresstype;
   set addressType(String value){
     addresstype = value;
+    print(addresstype);
     notifyListeners();
   }
   static AddressModel of(BuildContext context) =>

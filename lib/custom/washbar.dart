@@ -38,6 +38,7 @@ class _WashBar extends State<WashBar> {
     _controller.addListener((){
       setState(() {
         _value = _controller.index;
+        print('new index:$_value');
       });
     });
   }
@@ -51,7 +52,7 @@ class _WashBar extends State<WashBar> {
     _avatar = widget.avatar;
 
     return new Container(
-      margin: new EdgeInsets.only(top: 16.0, bottom: 16.0),
+      margin: new EdgeInsets.only(top: 10.0, bottom: 10.0),
       alignment: Alignment.center,
       child:new Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

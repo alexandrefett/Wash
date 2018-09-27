@@ -48,11 +48,9 @@ class _CustomWash extends State<CustomWash> {
             child: new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  new ActionChip(
-                    label: new Text('CANCEL'),
-                    onPressed: (){
+                  new IconButton(icon: Icon(Icons.arrow_back), onPressed: (){
                       Navigator.pop(context);
-                      },),
+                    }),
                   new ActionChip(
                     label: new Text('ADD'),
                     avatar: new Icon(Icons.add),
