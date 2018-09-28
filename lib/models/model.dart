@@ -196,6 +196,20 @@ class Clothe extends Model{
   String clothe;
   double value;
   bool white;
+
+  factory Clothe.fromMap(Map<String, dynamic> map){
+    return new Clothe(
+      clothe: map['clothe'],
+      value: map['value'],
+      white: map['white']
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+    'clothe':clothe,
+    'value':value,
+    'white':white
+  };
 }
 
 class BasketItem extends Model{
@@ -205,6 +219,17 @@ class BasketItem extends Model{
   double current;
   int quantity;
 
+  factory BasketItem.fromMap(Map<dynamic, dynamic> map){
+    return new BasketItem(
+        clothe: Clothe.fromMap(map['clothe']),
+        current: map['current']);
+  }
+
+  Map<String, dynamic> toJson() => {
+    'clothe': clothe.toJson(),
+    'current': current,
+    'quantity': quantity
+  };
 
   void addItems(int value){
     quantity += value;

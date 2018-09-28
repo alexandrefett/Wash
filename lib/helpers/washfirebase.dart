@@ -22,6 +22,7 @@ class WashDatabase{
         .snapshots().listen((DocumentSnapshot document){
       DeliveryTimeModel delivery = DeliveryTimeModel.fromMap(document.data['DeliveryTime']);
       AddressModel address = AddressModel.fromMap(document.data['Address']);
+
       WashModel washModel = new WashModel(
           address: address,
           delivery: delivery);
@@ -30,7 +31,12 @@ class WashDatabase{
   }
 
   static void addItemBasket(BasketItem item){
-
+    Firestore.instance
+        .collection('Accounts')
+        .document('CCmGCJcbTLBZJGAorXLf')
+        .collection('Account ID')
+        .document('jamaX13SHwedIWEbfkUI')
+        .collection('Basket').add(item.toJson());
   }
 
   static void updateAddress(AddressModel address){
