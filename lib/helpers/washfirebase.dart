@@ -29,6 +29,10 @@ class WashDatabase{
     });
   }
 
+  static void addItemBasket(BasketItem item){
+
+  }
+
   static void updateAddress(AddressModel address){
     Map<String, dynamic> map = {
       'Address':address.toJson()

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wash_x/helpers/my_flutter_app_icons.dart';
 import 'package:wash_x/laundry/bottonsheet.dart';
 import 'package:wash_x/animations/buttonstart.dart';
+import 'package:wash_x/widgets/startwashbutton.dart';
 
 class BasketPage extends StatefulWidget {
   @override
@@ -20,12 +21,7 @@ class _BasketPage extends State<BasketPage>
             child: Icon(MyFlutterApp.trash,size: 275.0),
             padding: new EdgeInsets.only(top:100.0),
           ),
-          FlatButton(
-            child: new Text('START WASH',
-              style: TextStyle(color: Colors.blueAccent)),
-            shape: new StadiumBorder(
-              side: new BorderSide(color: Colors.black26)),
-            onPressed: () {})
+          StartWashButton(onPressed: (){_showBottomSheet();})
         ]),
       ]);
   }

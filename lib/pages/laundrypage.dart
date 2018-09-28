@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wash_x/custom/washlisttile.dart';
+import 'package:wash_x/widgets/startwashbutton.dart';
 import 'package:wash_x/widgets/wash.dart';
 import 'package:wash_x/custom/custom_listtile.dart';
 import 'package:wash_x/models/model.dart';
@@ -18,6 +20,7 @@ class _LaundryPage extends State<LaundryPage>
 
   _addItem(WashModel model, Clothe item) {
     setState(() {
+
       model.add(new BasketItem(clothe: item, current: _rng.nextDouble()*300));
     });
   }
@@ -35,7 +38,7 @@ class _LaundryPage extends State<LaundryPage>
               itemCount: model.items.length,
               itemBuilder: (context, int index) {
                 BasketItem item = model.items[index];
-                return new CustomListTile(item: item);
+                return new WashListTile(item: item);
               }
             )
           ),
@@ -48,12 +51,7 @@ class _LaundryPage extends State<LaundryPage>
               )
             )
           ),
-          new Container(
-            height: 50.0,
-            child: new Center(
-                child: new Text('Tap to start laundry')
-            )
-          )
+          StartWashButton(onPressed: (){_showBottomSheet();})
         ]);
       });
     }

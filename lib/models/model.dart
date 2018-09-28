@@ -205,6 +205,7 @@ class BasketItem extends Model{
   double current;
   int quantity;
 
+
   void addItems(int value){
     quantity += value;
     notifyListeners();

@@ -34,6 +34,12 @@ class _PaymentIssue extends State<PaymentIssue> {
           alignment: Alignment.center,
           child: new Icon(Icons.drag_handle)),
         new Text(text,style: new TextStyle(fontSize: 16.0)),
+        FlatButton(
+            child: new Text('PAY',
+                style: TextStyle(color: Colors.blueAccent)),
+            shape: new StadiumBorder(
+                side: new BorderSide(color: Colors.black26)),
+            onPressed: () {})
       ]));
       });
   }
