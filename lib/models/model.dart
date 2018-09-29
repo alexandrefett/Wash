@@ -166,7 +166,7 @@ class BasketModel extends Model{
       ScopedModel.of<BasketModel>(context);
 
   List<BasketItem> _items = [];
-  List<BasketItem> get items => items;
+  List<BasketItem> get items => _items;
 
   void add(BasketItem item){
     _items.add(item);
@@ -213,26 +213,47 @@ class Clothe extends Model{
 }
 
 class BasketItem extends Model{
-  BasketItem({this.clothe, this.current})
-    :quantity = 1;
-  Clothe clothe;
-  double current;
-  int quantity;
+  BasketItem({
+    this.clothe,
+    this.current,
+    this.white,
+    this.id,
+    this.price,
+    this.drytype,
+    this.foldtype,
+    this.washtype
+  });
 
-  factory BasketItem.fromMap(Map<dynamic, dynamic> map){
+  String id;
+  String clothe;
+  double price;
+  double current;
+  bool white;
+  String washtype;
+  String drytype;
+  String foldtype;
+
+  factory BasketItem.fromMap(Map<dynamic, dynamic> map, String id){
     return new BasketItem(
-        clothe: Clothe.fromMap(map['clothe']),
-        current: map['current']);
+      clothe: map['clothe'],
+      current: map['current'],
+      white: map['white'],
+      id: id,
+      drytype: map['drytype'],
+      foldtype: map['foldtype'],
+      price: map['price'],
+      washtype: map['washtype'],
+    );
   }
 
   Map<String, dynamic> toJson() => {
-    'clothe': clothe.toJson(),
+    'clothe': clothe,
     'current': current,
-    'quantity': quantity
+    'white': white,
+    'id': id,
+    'drytype': drytype,
+    'foldtype': foldtype,
+    'price': price,
+    'washtype': washtype
   };
-
-  void addItems(int value){
-    quantity += value;
-    notifyListeners();
-  }
 }

@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:wash_x/controller/choicecontroller.dart';
 import 'package:wash_x/custom/washbar.dart';
@@ -25,13 +28,14 @@ class _AddressChange extends State<AddressChange>{
     _line1 = new TextEditingController();
     _line2 = new TextEditingController();
     _addressController = new ChoiceController(list: _place);
+
   }
 
   void update(){
     address.addressType = _addressController.item;
     address.first = _line1.text;
     address.second = _line2.text;
-    WashDatabase.updateAddress(address);
+    WashDatabase().updateAddress(address);
     Navigator.pop(context);
   }
 

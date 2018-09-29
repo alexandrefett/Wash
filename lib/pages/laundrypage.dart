@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:wash_x/custom/washlisttile.dart';
+import 'package:wash_x/widgets/carechange.dart';
 import 'package:wash_x/widgets/startwashbutton.dart';
-import 'package:wash_x/widgets/wash.dart';
-import 'package:wash_x/custom/custom_listtile.dart';
 import 'package:wash_x/models/model.dart';
 import 'package:wash_x/helpers/my_flutter_app_icons.dart';
 import 'dart:math' as math;
 import 'package:scoped_model/scoped_model.dart';
+import 'package:wash_x/widgets/washtileactive.dart';
 
 class LaundryPage extends StatefulWidget {
   @override
@@ -18,11 +17,7 @@ class _LaundryPage extends State<LaundryPage>
   final math.Random _rng = new math.Random();
   //List<BasketItem> basket = [];
 
-  _addItem(WashModel model, Clothe item) {
-    setState(() {
-
-      model.add(new BasketItem(clothe: item, current: _rng.nextDouble()*300));
-    });
+  _addItem(Clothe item) {
   }
 
   @override
@@ -38,7 +33,7 @@ class _LaundryPage extends State<LaundryPage>
               itemCount: model.items.length,
               itemBuilder: (context, int index) {
                 BasketItem item = model.items[index];
-                return new WashListTile(item: item);
+                return new WashTileActive(item: item);
               }
             )
           ),
@@ -56,15 +51,13 @@ class _LaundryPage extends State<LaundryPage>
       });
     }
 
-
   void _showBottomSheet() {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return new CustomWash();
+        return new CareChange();
       });
   }
-
 
   @override
   bool get wantKeepAlive => true;

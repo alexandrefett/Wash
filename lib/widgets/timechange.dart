@@ -40,7 +40,7 @@ class _CustomTimeChange extends State<CustomTimeChange> {
       time: _timeController.item,
       ondemand: _ondemand
     );
-    WashDatabase.updateDeliveryTime(a);
+    WashDatabase().updateDeliveryTime(a);
   }
 
   @override

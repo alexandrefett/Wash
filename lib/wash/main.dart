@@ -40,16 +40,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin{
+
   WashModel washModel;
   StreamSubscription _subsWash;
   TabController _tabcontroller;
   String _currentTab;
+  WashDatabase washdb;
 
-  void _login() async{
-    await FirebaseAuth.instance
+  void _login() {
+    FirebaseAuth.instance
       .signInWithEmailAndPassword(
         email: 'alexandrefett@gmail.com',
-        password: 'tuneca2011');
+        password: 'tuneca2011').then((onValue){
+          washdb.email = onValue.email;
+          washdb.getWashModel( _updateWash)
+              .then((StreamSubscription s) => _subsWash = s);
+
+    });
   }
 
   _updateWash(WashModel value){
@@ -68,6 +75,8 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   void initState() {
     super.initState();
+    washdb = WashDatabase();
+
     _tabcontroller = new TabController(vsync: this, length: pages.length);
     _tabcontroller.addListener((){
       setState(() {
@@ -76,13 +85,11 @@ class _MyHomePageState extends State<MyHomePage>
     });
     _currentTab = pages[_tabcontroller.index];
     _login();
-    WashDatabase.getWashModel('', _updateWash)
-        .then((StreamSubscription s) => _subsWash = s);
   }
 
   @override
   Widget build(BuildContext context) {
-    return washModel==null? new Container() : ScopedModel<WashModel>(
+    return washModel==null ? new Container(child: Center(child: new Text('Wait...'))) : ScopedModel<WashModel>(
       model: washModel,
       child: MaterialApp(
       home: DefaultTabController(
@@ -123,26 +130,25 @@ class _MyHomePageState extends State<MyHomePage>
                     Tab(icon: Icon(Icons.local_car_wash)),
                   ]))),
             Column(children: <Widget>[
-            ScopedModelDescendant<WashModel>(
-              builder: (context, child, model) {
-                print('ScopedModelDescendant:${model.delivery.time}');
-                return new SingleChildScrollView(
-                  padding: new EdgeInsets.all(8.0),
-                  scrollDirection: Axis.horizontal,
-                  child: new Row(children:[
-                    new WashChip(
-                      bottonSheet: new AddressChange(),
-                      label: new Text(model.address.line1),
-                      avatar: new Icon(MyFlutterApp.place,size: 18.0,)),
-                    new WashChip(
-                      bottonSheet: new CustomTimeChange(),
-                      label: new Text('${model.delivery.weekday}/${model.delivery.time}'),
-                      avatar: new Icon(MyFlutterApp.clock,size: 18.0,)),
-                    new WashChip(
-                      bottonSheet: new AppOptions(),
-                      label: new Text('APP OPTIONS'),
-                      avatar: new Icon(MyFlutterApp.info,size: 18.0,))
-              ]));}),
+//            ScopedModelDescendant<WashModel>(
+//              builder: (context, child, model) {
+//                return new SingleChildScrollView(
+//                  padding: new EdgeInsets.all(8.0),
+//                  scrollDirection: Axis.horizontal,
+//                  child: new Row(children:[
+//                    new WashChip(
+//                      bottonSheet: new AddressChange(),
+//                      label: new Text(model.address.line1),
+//                      avatar: new Icon(MyFlutterApp.place,size: 18.0,)),
+//                    new WashChip(
+//                      bottonSheet: new CustomTimeChange(),
+//                      label: new Text('${model.delivery.weekday}/${model.delivery.time}'),
+//                      avatar: new Icon(MyFlutterApp.clock,size: 18.0,)),
+//                    new WashChip(
+//                      bottonSheet: new AppOptions(),
+//                      label: new Text('APP OPTIONS'),
+//                      avatar: new Icon(MyFlutterApp.info,size: 18.0,))
+//              ]));}),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max ,

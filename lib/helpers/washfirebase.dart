@@ -11,15 +11,26 @@ Future<RemoteConfig> setupRemoteConfig() async {
 }
 
 class WashDatabase{
-  // ignore: missing_return
-  static Future<StreamSubscription<DocumentSnapshot>> getWashModel(String id,
-      void onData(WashModel wash)) async {
-    Firestore.instance
-        .collection('Accounts')
-        .document('CCmGCJcbTLBZJGAorXLf')
-        .collection('Account ID')
-        .document('jamaX13SHwedIWEbfkUI')
-        .snapshots().listen((DocumentSnapshot document){
+  static final WashDatabase _instance = new WashDatabase._internal();
+  factory WashDatabase() {
+    return _instance;
+  }
+  WashDatabase._internal();
+  String _email;
+  String get email => _email;
+  void set email(String value){
+    _email = value;
+  }
+
+  Future<StreamSubscription<DocumentSnapshot>> getWashModel(
+    void onData(WashModel wash)) async {
+      Firestore.instance
+      .collection('users')
+      .document(_email)
+      .snapshots().listen((DocumentSnapshot document){
+        print('-------------------');
+        print(document.data);
+        print('-------------------');
       DeliveryTimeModel delivery = DeliveryTimeModel.fromMap(document.data['DeliveryTime']);
       AddressModel address = AddressModel.fromMap(document.data['Address']);
 
@@ -30,39 +41,62 @@ class WashDatabase{
     });
   }
 
-  static void addItemBasket(BasketItem item){
+  Future<StreamSubscription<QuerySnapshot>> getBasketModel(
+      void onData(BasketModel basket)) async {
     Firestore.instance
-        .collection('Accounts')
-        .document('CCmGCJcbTLBZJGAorXLf')
-        .collection('Account ID')
-        .document('jamaX13SHwedIWEbfkUI')
-        .collection('Basket').add(item.toJson());
+        .collection('users')
+        .document(_email)
+        .collection('Basket')
+        .snapshots().listen((QuerySnapshot document){
+      print('-------------------');
+      print(document.documents.length);
+      print('-------------------');
+
+      BasketModel basket = new BasketModel();
+      document.documents.forEach((item){
+        basket.add(BasketItem.fromMap(item.data, item.documentID));
+      });
+
+//      DeliveryTimeModel delivery = DeliveryTimeModel.fromMap(document.data['DeliveryTime']);
+//      AddressModel address = AddressModel.fromMap(document.data['Address']);
+
+//      WashModel washModel = new WashModel(
+//          address: address,
+//          delivery: delivery);
+      onData(basket);
+    });
   }
 
-  static void updateAddress(AddressModel address){
+  void addItemBasket(BasketItem item){
+    Firestore.instance
+        .collection('users')
+        .document(_email)
+        .collection('Basket')
+        .document()
+        .setData(item.toJson())
+        .catchError((value)=>print('error:$value'));
+  }
+
+  void updateAddress(AddressModel address){
     Map<String, dynamic> map = {
       'Address':address.toJson()
     };
     print('map:$map');
     Firestore.instance
-        .collection('Accounts')
-        .document('CCmGCJcbTLBZJGAorXLf')
-        .collection('Account ID')
-        .document('jamaX13SHwedIWEbfkUI')
+        .collection('users')
+        .document(_email)
         .updateData(map).catchError((onValue){
       print('error:$onValue');
     });
   }
-  static void updateDeliveryTime(DeliveryTimeModel time){
+  void updateDeliveryTime(DeliveryTimeModel time){
     Map<String, dynamic> map = {
       'DeliveryTime':time.toJson()
     };
     print('map:$map');
     Firestore.instance
-        .collection('Accounts')
-        .document('CCmGCJcbTLBZJGAorXLf')
-        .collection('Account ID')
-        .document('jamaX13SHwedIWEbfkUI')
+        .collection('users')
+        .document(_email)
         .updateData(map).catchError((onValue){
       print('error:$onValue');
     });

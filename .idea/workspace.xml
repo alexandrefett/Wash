@@ -7,9 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69055964-3632-42bf-8164-28033e577df3" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/lib/widgets/washtile.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/custom/washlisttile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/washtileactive.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/helper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/helper.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/helpers/washfirebase.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/washfirebase.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/laundry/bottonsheet.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/washlaundry.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/models/model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/basketpage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/basketpage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/pages/laundrypage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/pages/laundrypage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/wash/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/wash/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/addresschange.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/addresschange.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/timechange.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/timechange.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widgets/wash.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/carechange.dart" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.dart_tool/" />
     <ignored path="$PROJECT_DIR$/.idea/" />
@@ -24,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/wash/main.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1952">
-              <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
+            <state relative-caret-position="61">
+              <caret line="132" selection-start-line="132" selection-end-line="151" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -36,13 +46,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="basketpage.dart" pinned="false" current-in-tab="true">
+      <file leaf-file-name="washfirebase.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/helpers/washfirebase.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="248">
+              <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="basketpage.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/pages/basketpage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="123">
+              <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -51,35 +70,41 @@
       <file leaf-file-name="laundrypage.dart" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/pages/laundrypage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="256">
+              <caret line="35" column="54" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="54" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="washfirebase.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/helpers/washfirebase.dart">
+      <file leaf-file-name="washlaundry.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/widgets/washlaundry.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="235">
+              <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="model.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/models/model.dart">
+      <file leaf-file-name="washtileactive.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/widgets/washtileactive.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="231" column="4" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
+            <state relative-caret-position="315">
+              <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bottonsheet.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/laundry/bottonsheet.dart">
+      <file leaf-file-name="washtile.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/widgets/washtile.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+            <state relative-caret-position="291">
+              <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,6 +114,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Singleton" />
         <option value="Dart File" />
       </list>
     </option>
@@ -99,6 +125,7 @@
       <find>_updateWash</find>
       <find>ex</find>
       <find>expo</find>
+      <find>time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,7 +161,6 @@
         <option value="$PROJECT_DIR$/lib/freewash/ui/slider_list.dart" />
         <option value="$PROJECT_DIR$/android/key.properties" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
-        <option value="$PROJECT_DIR$/lib/helpers/helper.dart" />
         <option value="$PROJECT_DIR$/lib/custom/custom_listtile.dart" />
         <option value="$PROJECT_DIR$/lib/pages/drycleanpage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/profilepage.dart" />
@@ -142,27 +168,33 @@
         <option value="$PROJECT_DIR$/android/app/src/main/java/com/example/demo/MainActivity.java" />
         <option value="$PROJECT_DIR$/lib/widgets/appoptions.dart" />
         <option value="$PROJECT_DIR$/lib/custom/BottonBase.dart" />
-        <option value="$PROJECT_DIR$/lib/laundry/bottonsheet.dart" />
         <option value="$PROJECT_DIR$/lib/pages/carpage.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/wash.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/washbutton.dart" />
         <option value="$PROJECT_DIR$/lib/animations/buttonstart.dart" />
         <option value="$PROJECT_DIR$/lib/controller/choicecontroller.dart" />
-        <option value="$PROJECT_DIR$/lib/wash/main.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/timechange.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/android/build.gradle" />
         <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/lib/custom/chipbase.dart" />
         <option value="$PROJECT_DIR$/lib/custom/washbar.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/addresschange.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/paymentissue.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/startwashbutton.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/basketpage.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/wash.dart" />
+        <option value="$PROJECT_DIR$/lib/laundry/bottonsheet.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/bottonsheet.dart" />
+        <option value="$PROJECT_DIR$/lib/helpers/helper.dart" />
         <option value="$PROJECT_DIR$/lib/custom/washlisttile.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/laundrypage.dart" />
-        <option value="$PROJECT_DIR$/lib/models/model.dart" />
+        <option value="$PROJECT_DIR$/lib/helpers/singleton.java" />
+        <option value="$PROJECT_DIR$/lib/widgets/addresschange.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/timechange.dart" />
         <option value="$PROJECT_DIR$/lib/helpers/washfirebase.dart" />
+        <option value="$PROJECT_DIR$/lib/models/model.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/washlaundry.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/washtile.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/laundrypage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/basketpage.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/washtileactive.dart" />
+        <option value="$PROJECT_DIR$/lib/wash/main.dart" />
       </list>
     </option>
   </component>
@@ -205,12 +237,6 @@
               <item name="Wash" type="b2602c69:ProjectViewProjectNode" />
               <item name="Wash" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="laundry" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Wash" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Wash" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -237,8 +263,8 @@
         <option name="show-excluded-files" value="false" />
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,9 +279,12 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib\custom" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib\widgets" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib\widgets" />
+      <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib\custom" />
       <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib\animations" />
       <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\android\app" />
       <recent name="C:\Users\Alexandre\AndroidStudioProjects\Wash\lib" />
@@ -410,11 +439,18 @@
       <option name="project" value="LOCAL" />
       <updated>1538145491963</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Pages:&#10;Main&#10;- main wash&#10;- basket&#10;- wash&#10;&#10;options delivery address / firebase&#10;time change /  firese&#10;app options / remote config">
+      <created>1538166076806</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1538166076806</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1362" y="-4" width="1928" height="1088" extended-state="6" />
+    <frame x="1362" y="-4" width="1374" height="776" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
@@ -425,7 +461,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5030211" side_tool="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32891247" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.1927835" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28723404" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49697885" weight="0.32978722" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.29331306" />
       <window_info anchor="right" id="Flutter Outline" order="3" />
@@ -433,7 +469,7 @@
       <window_info id="Captures" order="2" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3365282" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21827795" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="3" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -448,13 +484,14 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3298969" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="2" />
       <window_info anchor="bottom" id="Dart Analysis" order="7" weight="0.32891247" />
       <window_info id="Build Variants" order="3" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.17938145" />
+      <window_info id="Image Layers" order="4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28723404" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" id="Flutter Inspector" order="3" />
@@ -465,23 +502,22 @@
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5030211" side_tool="true" weight="0.32978722" />
-      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="5" side_tool="true" />
       <window_info anchor="right" id="Flutter Outline" order="6" />
       <window_info anchor="right" id="Assistant" order="9" weight="0.32930514" />
       <window_info anchor="bottom" id="Logcat" order="10" />
       <window_info anchor="bottom" id="Version Control" order="11" sideWeight="0.49697885" weight="0.32978722" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.29381442" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15069222" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.29331306" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.3298969" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21827795" />
       <window_info anchor="bottom" id="Messages" order="13" visible="true" weight="0.3069909" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info id="Image Layers" order="4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
     </layout-to-restore>
   </component>
@@ -535,31 +571,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/pages/authenticationPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/setupPage.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/pages/homePage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="102" column="64" selection-start-line="102" selection-start-column="64" selection-end-line="102" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/beforeSetupPage.dart" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/java/com/example/demo/MainActivity.java" />
-    <entry file="file://$PROJECT_DIR$/android/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/android/app/.project">
       <provider selected="true" editor-type-id="text-editor">
         <state />
@@ -602,7 +613,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/freewash/main.dart" />
     <entry file="file://$PROJECT_DIR$/android/app/google-services.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -648,13 +658,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/animations/buttonstart.dart" />
-    <entry file="file://$PROJECT_DIR$/lib/widgets/wash.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="54" column="20" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/flutter/packages/flutter/lib/src/widgets/framework.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1248">
@@ -718,30 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/laundry/bottonsheet.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/addresschange.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1152">
-          <caret line="77" column="31" selection-start-line="77" selection-start-column="31" selection-end-line="77" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/timechange.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="717">
-          <caret line="74" column="14" selection-start-line="74" selection-start-column="14" selection-end-line="74" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/flutter/packages/flutter/lib/src/material/flat_button.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -763,16 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/wash/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1952">
-          <caret line="138" column="22" selection-start-line="138" selection-start-column="22" selection-end-line="138" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/startwashbutton.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -780,50 +749,144 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/custom/custom_listtile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/custom/custom_listtile.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/widgets/wash.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/freewash/main.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="6" lean-forward="true" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="12" />
+        <state relative-caret-position="16">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/carechange.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-96" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/bottonsheet.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="48" lean-forward="true" selection-start-line="48" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/helpers/singleton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/helpers/firebaseHelper.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/addresschange.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/timechange.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="42" column="18" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/custom/washlisttile.dart">
+    <entry file="file://$PROJECT_DIR$/lib/helpers/helper.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/laundrypage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/model.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="231" column="4" selection-start-line="231" selection-start-column="4" selection-end-line="231" selection-end-column="4" />
+          <caret line="4" column="30" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/helpers/washfirebase.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="248">
+          <caret line="56" column="64" selection-start-line="56" selection-start-column="64" selection-end-line="56" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/model.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="168" column="33" selection-start-line="168" selection-start-column="33" selection-end-line="168" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/washtile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="21" column="38" selection-start-line="21" selection-start-column="38" selection-end-line="21" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/washlaundry.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/washlisttile.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="26" column="50" selection-start-line="26" selection-start-column="50" selection-end-line="26" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/laundrypage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="35" column="54" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="54" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/basketpage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="22" lean-forward="true" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+        <state relative-caret-position="123">
+          <caret line="58" column="19" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="19" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/washtileactive.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/wash/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61">
+          <caret line="132" selection-start-line="132" selection-end-line="151" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

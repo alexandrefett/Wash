@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:wash_x/controller/choicecontroller.dart';
 import 'package:wash_x/custom/washbar.dart';
 
-class CustomWash extends StatefulWidget {
+class CareChange extends StatefulWidget {
   @override
-  _CustomWash createState() => new _CustomWash();
+  _CareChange createState() => new _CareChange();
 }
 
-class _CustomWash extends State<CustomWash> {
+class _CareChange extends State<CareChange> {
 
   List<String> wash = ['HAND', 'MACHINE', 'DRY CLEAN'];
   List<String> dry = ['HANG', 'MACHINE DRY', 'DRY CLEAN'];
@@ -52,7 +52,7 @@ class _CustomWash extends State<CustomWash> {
                       Navigator.pop(context);
                     }),
                   new ActionChip(
-                    label: new Text('ADD'),
+                    label: new Text('DONE'),
                     avatar: new Icon(Icons.add),
                     onPressed: (){},),
                 ]

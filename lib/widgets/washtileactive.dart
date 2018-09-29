@@ -3,15 +3,15 @@ import 'package:wash_x/helpers/helper.dart';
 import 'package:wash_x/models/model.dart';
 import 'package:wash_x/helpers/my_flutter_app_icons.dart';
 
-class WashListTile extends StatefulWidget{
-  WashListTile({this.item});
+class WashTileActive extends StatefulWidget{
+  WashTileActive({this.item});
   final BasketItem item;
 
   @override
-  _WashListTile createState() => _WashListTile();
+  _WashTileActive createState() => _WashTileActive();
 }
 
-class _WashListTile extends State<WashListTile>{
+class _WashTileActive extends State<WashTileActive>{
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,14 @@ class _WashListTile extends State<WashListTile>{
       margin: new EdgeInsets.all(5.0),
       child: Column(children: <Widget>[
         new ListTile(
-            leading: new Icon(icons[widget.item.clothe.clothe]),
-            title: new Text(widget.item.clothe.clothe),
-            subtitle: new Text('\$${widget.item.clothe.value}'),
+            leading: new Icon(icons[widget.item.clothe]),
+            title: new Text(widget.item.clothe),
+            subtitle: new Text('\$${widget.item.price}'),
             trailing: new Icon(MyFlutterApp.dot_3)
         ),
-        new LinearProgressIndicator(value: widget.item.current/100,)
+        new LinearProgressIndicator(
+          value: 0.25,
+          backgroundColor: Colors.white,)
       ]),
     );
   }

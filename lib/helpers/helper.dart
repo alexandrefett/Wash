@@ -13,13 +13,13 @@ const Map<String, dynamic> icons = {
 
 };
 
-List<Clothe> clothes = <Clothe>[
-  new Clothe(clothe: 'Dress', value: 10.0),
-  new Clothe(clothe: 'Pants', value: 11.0),
-  new Clothe(clothe: 'Polo', value: 12.0),
-  new Clothe(clothe: 'T-Shirt', value: 13.0),
-  new Clothe(clothe: 'Skirt', value: 14.0),
-  new Clothe(clothe: 'Suit', value: 15.0),
-  new Clothe(clothe: 'Shorts', value: 16.0),
-  new Clothe(clothe: 'Slippers', value: 16.0)
+List<BasketItem> clothes = <BasketItem>[
+  new BasketItem(clothe: 'Dress', price: 10.0),
+  new BasketItem(clothe: 'Pants', price: 11.0),
+  new BasketItem(clothe: 'Polo', price: 12.0),
+  new BasketItem(clothe: 'T-Shirt', price: 13.0),
+  new BasketItem(clothe: 'Skirt', price: 14.0),
+  new BasketItem(clothe: 'Suit', price: 15.0),
+  new BasketItem(clothe: 'Shorts', price: 16.0),
+  new BasketItem(clothe: 'Slippers', price: 16.0)
 ];
